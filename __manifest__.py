@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "link_tech_ticket_print_sale_order",
+    'name': "Impresión de Ticket desde Presupuestos",
 
     'summary': """
         Agrega opcion de imprimir ticket en sale order""",
@@ -18,7 +18,6 @@
     'depends': ['base', 'sale'],
 
     'data': [
-        # 'security/ir.model.access.csv',
         'views/templates.xml',
         'reports/report.xml'
     ],
