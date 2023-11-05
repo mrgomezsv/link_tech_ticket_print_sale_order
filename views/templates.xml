@@ -5,54 +5,52 @@
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="web.external_layout">
-                        <link rel="stylesheet" href="/link_tech_ticket_print_sale_order/static/src/css/ticket.css"/>
 
                         <!-- Cabecera (Header) -->
-                        <div class="ticket-header">
-                            <h1 class="ticket-title">Ticket de Venta</h1>
-                            <div class="company-info">
-                                <div class="company-field company-name">
-                                    <t t-esc="o.company_id.name"/>
+                        <div style="text-align: center; font-size: 14px; width: 100%; border-bottom: 1px solid #000; margin-bottom: 10px;">
+                            <div>
+                                <div>
+                                    <t t-esc="o.company_id.name and o.company_id.name.upper() or ''"/>
                                 </div>
-                                <div class="company-field company-street">
+                                <div>
                                     <t t-esc="o.company_id.street"/>
                                 </div>
-                                <div class="company-field company-vat">
+                                <div>
                                     <t t-esc="o.company_id.vat"/>
                                 </div>
-                                <div class="company-field company-phone">
+                                <div>
                                     <t t-esc="o.company_id.phone"/>
                                 </div>
-                                <div class="company-field company-email">
+                                <div>
                                     <t t-esc="o.company_id.email"/>
                                 </div>
-                                <div class="budget-number">
-                                    <p class="budget-text">Presupuesto:
-                                        <t t-esc="o.name"/>
-                                    </p>
+                                <div>
+                                    Presupuesto:
+                                    <t t-esc="o.name"/>
+
                                 </div>
                             </div>
                         </div>
 
                         <!-- Cuerpo (Body) -->
-                        <div class="ticket-content">
-                            <table class="table">
+                        <div>
+                            <table style="width: 100%; text-align: center; font-size: 14px;">
                                 <thead>
                                     <tr>
-                                        <th class="ticket-field quantity">Cantidad</th>
-                                        <th class="ticket-field description">Descripción</th>
-                                        <th class="ticket-field total">Total</th>
+                                        <th>Cantidad</th>
+                                        <th>Descripción</th>
+                                        <th>SubTotal</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="line-separator" t-foreach="o.order_line" t-as="line">
-                                        <td class="ticket-value quantity">
+                                <tbody style="text-align: center; font-size: 14px;">
+                                    <tr t-foreach="o.order_line" t-as="line">
+                                        <td>
                                             <span t-field="line.product_uom_qty"/>
                                         </td>
-                                        <td class="ticket-value description">
+                                        <td>
                                             <span t-field="line.product_id.name"/>
                                         </td>
-                                        <td class="ticket-value total">
+                                        <td>
                                             <span t-field="line.price_subtotal"
                                                   t-options='{"widget": "monetary", "currency_field": "o.currency_id", "currency_field_digits": 2, "currency_field_position": "before"}'/>
                                         </td>
@@ -62,10 +60,18 @@
                         </div>
 
                         <!-- Pie de Página (Footer) -->
-                        <div class="ticket-footer">
-                            <p class="footer-separator">---------------------</p>
-                            <p class="thank-you">GRACIAS POR SU COMPRA</p>
-                            <p class="footer-separator">---------------------</p>
+                        <div style="text-align: center; font-size: 14px;">
+                            <p style="text-align: right; font-size: 14px;">
+                                Total....:
+                                <span t-field="o.amount_total"
+                                      t-options='{"widget": "monetary", "currency_field": "o.currency_id", "currency_field_digits": 2, "currency_field_position": "before"}'/>
+                            </p>
+                            <div style="width: 100%; border-top: 1px solid #000; border-bottom: 1px solid #000;">
+                                <p>GRACIAS POR SU COMPRA</p>
+                                <div style="margin-bottom: 10px;">
+                                    <t t-esc="o.company_id.website"/>
+                                </div>
+                            </div>
                         </div>
                     </t>
                 </t>

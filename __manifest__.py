@@ -19,6 +19,7 @@
 
     'data': [
         'views/templates.xml',
-        'reports/report.xml'
+        'reports/report.xml',
+        'reports/link_tech_ticket_print_sale_order.xml',
     ],
 }
