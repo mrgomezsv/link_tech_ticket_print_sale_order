@@ -1,7 +1,6 @@
-/* Estilo del ticket */
+/* Estilos del ticket */
 .page {
     font-family: Arial, sans-serif;
-    /* background-color: #fff; */
     background-color: green !important;
     border: 1px solid #000;
     margin: 10px;
@@ -9,10 +8,28 @@
 }
 
 .ticket-header {
-    font-size: 124px;
     text-align: center;
-    background-color: green !important;
-    border: 1px solid #000000;
+}
+
+.ticket-title {
+    font-size: 24px;
+    color: blue;
+}
+
+.company-info {
+    font-size: 12px;
+    color: blue;
+    text-align: center;
+}
+
+.company-field {
+    margin: 10px;
+}
+
+.budget-number {
+    font-size: 12px;
+    color: blue;
+    text-align: center;
 }
 
 .ticket-content {
@@ -24,29 +41,40 @@
     border-collapse: collapse;
 }
 
-.table th, .table td {
+.ticket-field {
     border: 1px solid #000;
     padding: 5px;
     text-align: left;
 }
 
-.ticket-field {
-    font-weight: bold;
+.quantity {
+    text-align: center;
+}
+
+.description {
+    text-align: center;
+}
+
+.total {
+    text-align: center;
+}
+
+.line-separator {
+    border-top: 1px solid #000;
 }
 
 .ticket-value {
-    margin-left: 10px;
+    font-weight: bold;
 }
 
-/* Estilo para los datos de la compañía en el ticket-header */
-.company-info {
-    text-align: center; /* Para centrar los elementos */
+.ticket-footer {
+    text-align: center;
 }
 
-.company-info t {
-    font-size: 12px; /* Tamaño de letra pequeño */
-    color: blue; /* Color de texto en azul */
+.footer-separator {
+    border-top: 1px solid #000;
 }
 
-/* Otros estilos CSS personalizados */
-/* Agrega aquí tus estilos personalizados */
+.thank-you {
+    font-weight: bold;
+}

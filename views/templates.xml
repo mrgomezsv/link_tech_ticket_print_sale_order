@@ -6,36 +6,66 @@
                 <t t-foreach="docs" t-as="o">
                     <t t-call="web.external_layout">
                         <link rel="stylesheet" href="/link_tech_ticket_print_sale_order/static/src/css/ticket.css"/>
-                        <!-- <link rel="stylesheet" href="/link_tech_ticket_print_sale_order/static/src/css/common.css"/> -->
-                        <div class="page">
-                            <div class="ticket-header" style="font-size: 12px; color: blue; text-align: center;">
-                            <h1>Ticket de Venta</h1>
+
+                        <!-- Cabecera (Header) -->
+                        <div class="ticket-header">
+                            <h1 class="ticket-title">Ticket de Venta</h1>
                             <div class="company-info">
-                                <t t-esc="o.company_id.name" style="font-size: 12px; color: blue; text-align: center;"/> <!-- Estilos en línea -->
-                                <t t-esc="o.company_id.street" style="font-size: 12px; color: blue; text-align: center;"/>
-                                <t t-esc="o.company_id.vat" style="font-size: 12px; color: blue; text-align: center;"/>
-                                <t t-esc="o.company_id.phone" style="font-size: 12px; color: blue; text-align: center;"/>
-                                <t t-esc="o.company_id.email" style="font-size: 12px; color: blue; text-align: center;"/>
+                                <div class="company-field company-name">
+                                    <t t-esc="o.company_id.name"/>
+                                </div>
+                                <div class="company-field company-street">
+                                    <t t-esc="o.company_id.street"/>
+                                </div>
+                                <div class="company-field company-vat">
+                                    <t t-esc="o.company_id.vat"/>
+                                </div>
+                                <div class="company-field company-phone">
+                                    <t t-esc="o.company_id.phone"/>
+                                </div>
+                                <div class="company-field company-email">
+                                    <t t-esc="o.company_id.email"/>
+                                </div>
+                                <div class="budget-number">
+                                    <p class="budget-text">Presupuesto:
+                                        <t t-esc="o.name"/>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                            <div class="ticket-content">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="ticket-field">Cliente</th>
-                                            <th class="ticket-field">Producto</th>
-                                            <th class="ticket-field">Cantidad</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr t-foreach="o.order_line" t-as="line">
-                                            <td class="ticket-value"><span t-field="o.partner_id.name"/></td>
-                                            <td class="ticket-value"><span t-field="line.product_id.name"/></td>
-                                            <td class="ticket-value"><span t-field="line.product_uom_qty"/></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+
+                        <!-- Cuerpo (Body) -->
+                        <div class="ticket-content">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="ticket-field quantity">Cantidad</th>
+                                        <th class="ticket-field description">Descripción</th>
+                                        <th class="ticket-field total">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="line-separator" t-foreach="o.order_line" t-as="line">
+                                        <td class="ticket-value quantity">
+                                            <span t-field="line.product_uom_qty"/>
+                                        </td>
+                                        <td class="ticket-value description">
+                                            <span t-field="line.product_id.name"/>
+                                        </td>
+                                        <td class="ticket-value total">
+                                            <span t-field="line.price_subtotal"
+                                                  t-options='{"widget": "monetary", "currency_field": "o.currency_id", "currency_field_digits": 2, "currency_field_position": "before"}'/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pie de Página (Footer) -->
+                        <div class="ticket-footer">
+                            <p class="footer-separator">---------------------</p>
+                            <p class="thank-you">GRACIAS POR SU COMPRA</p>
+                            <p class="footer-separator">---------------------</p>
                         </div>
                     </t>
                 </t>
