@@ -17,8 +17,8 @@
         <field name="name">Ticket de Venta</field>
         <field name="model">sale.order</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">ticket_print_sale_order.report_ticket_sale_order</field>
-        <field name="report_file">ticket_print_sale_order.report_ticket_sale_order</field>
+        <field name="report_name">link_tech_ticket_print_sale_order.report_ticket_sale_order</field>
+        <field name="report_file">link_tech_ticket_print_sale_order.report_ticket_sale_order</field>
         <field name="paperformat_id" ref="ticket_paper_format" /> <!-- Estableces el formato de papel personalizado "Ticket" -->
         <field name="binding_model_id" ref="sale.model_sale_order"/>
         <field name="binding_type">report</field>

@@ -5,28 +5,37 @@
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="web.external_layout">
+                        <link rel="stylesheet" href="/link_tech_ticket_print_sale_order/static/src/css/ticket.css"/>
+                        <!-- <link rel="stylesheet" href="/link_tech_ticket_print_sale_order/static/src/css/common.css"/> -->
                         <div class="page">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h1>Ticket de Venta</h1>
-                                </div>
+                            <div class="ticket-header" style="font-size: 12px; color: blue; text-align: center;">
+                            <h1>Ticket de Venta</h1>
+                            <div class="company-info">
+                                <t t-esc="o.company_id.name" style="font-size: 12px; color: blue; text-align: center;"/> <!-- Estilos en línea -->
+                                <t t-esc="o.company_id.street" style="font-size: 12px; color: blue; text-align: center;"/>
+                                <t t-esc="o.company_id.vat" style="font-size: 12px; color: blue; text-align: center;"/>
+                                <t t-esc="o.company_id.phone" style="font-size: 12px; color: blue; text-align: center;"/>
+                                <t t-esc="o.company_id.email" style="font-size: 12px; color: blue; text-align: center;"/>
                             </div>
-                            <table class="table table-condensed">
-                                <thead>
-                                    <tr>
-                                        <th>Cliente</th>
-                                        <th>Producto</th>
-                                        <th>Cantidad</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr t-foreach="o.order_line" t-as="line">
-                                        <td><span t-field="o.partner_id.name"/></td>
-                                        <td><span t-field="line.product_id.name"/></td>
-                                        <td><span t-field="line.product_uom_qty"/></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        </div>
+                            <div class="ticket-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="ticket-field">Cliente</th>
+                                            <th class="ticket-field">Producto</th>
+                                            <th class="ticket-field">Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="o.order_line" t-as="line">
+                                            <td class="ticket-value"><span t-field="o.partner_id.name"/></td>
+                                            <td class="ticket-value"><span t-field="line.product_id.name"/></td>
+                                            <td class="ticket-value"><span t-field="line.product_uom_qty"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </t>
                 </t>
