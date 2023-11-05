@@ -13,22 +13,28 @@
                                     <t t-esc="o.company_id.name and o.company_id.name.upper() or ''"/>
                                 </div>
                                 <div>
-                                    <t t-esc="o.company_id.street"/>
-                                </div>
-                                <div>
-                                    <t t-esc="o.company_id.vat"/>
-                                </div>
-                                <div>
-                                    <t t-esc="o.company_id.phone"/>
-                                </div>
-                                <div>
-                                    <t t-esc="o.company_id.email"/>
-                                </div>
-                                <div>
                                     Presupuesto:
                                     <t t-esc="o.name"/>
-
                                 </div>
+                                <div>
+                                    Cliente:
+                                    <t t-esc="o.partner_id.name"/>
+                                </div>
+                                <div>
+                                    <t t-esc="o.partner_id.street or ''"/>
+                                </div>
+                                <div>
+                                    <t t-esc="o.partner_id.city or ''"/>
+                                    <t t-if="o.partner_id.city and o.partner_id.state_id.name">,</t>
+                                    <t t-esc="o.partner_id.state_id.name or ''"/>
+                                </div>
+                                <div>
+                                    <t t-esc="o.partner_id.phone or ''"/>
+                                </div>
+                                <div>
+                                    <t t-esc="o.partner_id.email or ''"/>
+                                </div>
+                                <br/>
                             </div>
                         </div>
 
@@ -67,10 +73,17 @@
                                       t-options='{"widget": "monetary", "currency_field": "o.currency_id", "currency_field_digits": 2, "currency_field_position": "before"}'/>
                             </p>
                             <div style="width: 100%; border-top: 1px solid #000; border-bottom: 1px solid #000;">
-                                <p>GRACIAS POR SU COMPRA</p>
+                                <br/>
+                                <div>
+                                    <t t-esc="o.company_id.phone"/>
+                                </div>
+                                <div>
+                                    <t t-esc="o.company_id.email"/>
+                                </div>
                                 <div style="margin-bottom: 10px;">
                                     <t t-esc="o.company_id.website"/>
                                 </div>
+                                <p>GRACIAS POR SU COMPRA</p>
                             </div>
                         </div>
                     </t>
