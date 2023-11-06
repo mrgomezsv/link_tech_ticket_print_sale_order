@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="report_ticket_sale_order" model="ir.actions.report">
         <field name="name">link_tech_ticket_print_sale_order</field>
@@ -20,4 +20,4 @@
             </xpath>
         </field>
     </record>
-</odoo>
+</odoo> -->
