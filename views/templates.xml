@@ -40,7 +40,7 @@
 
                         <!-- Cuerpo (Body) -->
                         <div>
-                            <table style="width: 100%; text-align: center; font-size: 14px;">
+                            <table class="table-borderless" style="width: 100%; text-align: center; font-size: 14px;">
                                 <thead>
                                     <tr>
                                         <th>Cantidad</th>
