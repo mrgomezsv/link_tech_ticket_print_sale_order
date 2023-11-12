@@ -8,9 +8,6 @@
 
                         <!-- Cabecera (Header) -->
                         <div style="text-align: center; font-size: 14px; width: 100%; border-bottom: 1px solid #000; margin-bottom: 10px;">
-                            <div style="font-weight: bold;">
-                                <t t-esc="o.company_id.name and o.company_id.name.upper() or ''"/>
-                            </div>
                             <div>
                                 <div>
                                     <t t-esc="o.company_id.name and o.company_id.name.upper() or ''"/>
@@ -33,6 +30,9 @@
                                 </div>
                                 <div>
                                     <t t-esc="o.partner_id.phone or ''"/>
+                                </div>
+                                <div>
+                                    <t t-esc="o.partner_id.mobile or ''"/>
                                 </div>
                                 <div>
                                     <t t-esc="o.partner_id.email or ''"/>
