@@ -8,6 +8,9 @@
 
                         <!-- Cabecera (Header) -->
                         <div style="text-align: center; font-size: 14px; width: 100%; border-bottom: 1px solid #000; margin-bottom: 10px;">
+                            <div style="font-weight: bold;">
+                                <t t-esc="o.company_id.name and o.company_id.name.upper() or ''"/>
+                            </div>
                             <div>
                                 <div>
                                     <t t-esc="o.company_id.name and o.company_id.name.upper() or ''"/>
@@ -40,7 +43,7 @@
 
                         <!-- Cuerpo (Body) -->
                         <div>
-                            <table class="table-borderless" style="width: 100%; text-align: center; font-size: 14px;">
+                            <table class="table-borderless" style="width: 100%; text-align: center; font-size: 14px; border-collapse: collapse;">
                                 <thead>
                                     <tr>
                                         <th>Cantidad</th>
@@ -54,7 +57,7 @@
                                             <span t-field="line.product_uom_qty"/>
                                         </td>
                                         <td>
-                                             <span t-field="line.name"/>
+                                            <span t-field="line.name"/>
                                         </td>
                                         <td>
                                             <span t-field="line.price_subtotal"
@@ -83,7 +86,7 @@
                                 <div style="margin-bottom: 10px;">
                                     <t t-esc="o.company_id.website"/>
                                 </div>
-                                <p>GRACIAS POR SU COMPRA</p>
+                                <p style="margin: 0;">GRACIAS POR SU COMPRA</p>
                             </div>
                         </div>
                     </t>
