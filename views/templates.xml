@@ -7,7 +7,7 @@
                     <t t-call="web.external_layout">
 
                         <!-- Cabecera (Header) -->
-                        <div style="text-align: center; font-size: 14px; width: 100%; border-bottom: 1px solid #000; margin-bottom: 10px;">
+                        <div style="text-align: center; font-size: 14px; width: 100%; border-bottom: 1px solid #000; margin-bottom: 10px; font-weight: normal; color: black; background: white !important;">
                             <div>
                                 <div>
                                     <t t-esc="o.company_id.name and o.company_id.name.upper() or ''"/>
@@ -43,7 +43,7 @@
 
                         <!-- Cuerpo (Body) -->
                         <div>
-                            <table class="table-borderless" style="width: 100%; text-align: center; font-size: 14px; border-collapse: collapse;">
+                            <table class="table table-borderless" style="width: 100%; text-align: center; font-size: 14px; border-collapse: collapse; font-weight: normal;color: black; background: white !important;">
                                 <thead>
                                     <tr>
                                         <th>Cantidad</th>
@@ -51,7 +51,7 @@
                                         <th>SubTotal</th>
                                     </tr>
                                 </thead>
-                                <tbody style="text-align: center; font-size: 14px;">
+                                <tbody style="text-align: center; font-size: 14px; font-weight: normal;color: black; background: white !important;">
                                     <tr t-foreach="o.order_line" t-as="line">
                                         <td>
                                             <span t-field="line.product_uom_qty"/>
@@ -69,8 +69,8 @@
                         </div>
 
                         <!-- Pie de Página (Footer) -->
-                        <div style="text-align: center; font-size: 14px;">
-                            <p style="text-align: right; font-size: 14px;">
+                        <div style="text-align: center; font-size: 14px; font-weight: normal;color: black; background: white !important;">
+                            <p style="text-align: right; font-size: 14px; font-weight: normal;color: black; background: white !important;">
                                 Total....:
                                 <span t-field="o.amount_total"
                                       t-options='{"widget": "monetary", "currency_field": "o.currency_id", "currency_field_digits": 2, "currency_field_position": "before"}'/>
@@ -83,10 +83,10 @@
                                 <div>
                                     <t t-esc="o.company_id.email"/>
                                 </div>
-                                <div style="margin-bottom: 10px;">
+                                <div style="margin-bottom: 10px; background: white !important;">
                                     <t t-esc="o.company_id.website"/>
                                 </div>
-                                <p style="margin: 0;">GRACIAS POR SU COMPRA</p>
+                                <p style="margin: 0; font-weight: normal;color: black; background: white !important;">GRACIAS POR SU COMPRA</p>
                             </div>
                         </div>
                     </t>
